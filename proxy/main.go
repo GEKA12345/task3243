@@ -13,10 +13,7 @@ type Router struct {
 }
 
 func main() {
-	host := "http://hugo"
-	port := ":1313"
-	r := getProxyRouter(host, port)
-	http.ListenAndServe(":8080", r.r)
+	http.ListenAndServe(":8080", getProxyRouter("http://hugo", ":1313").r)
 }
 
 func getProxyRouter(host, port string) *Router {
